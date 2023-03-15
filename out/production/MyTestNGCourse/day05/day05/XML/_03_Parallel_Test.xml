@@ -1,0 +1,43 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MySuit" parallel="tests" thread-count="2">
+    <test name="myTest1">
+        <parameter name="searchedWord" value="mac"></parameter>
+        <parameter name="browserType" value="firefox"></parameter>
+
+        <classes>
+            <class name="day05._01_SearchFunctionality"/>
+        </classes>
+    </test>
+
+    <test name="myTest2">
+        <parameter name="searchedWord" value="mac"></parameter>
+        <parameter name="browserType" value="chrome"></parameter>
+
+        <classes>
+            <class name="day05._01_SearchFunctionality"/>
+        </classes>
+    </test>
+</suite>
+
+
+<!--Alternate Code-->
+
+<!--<suite name="MySuit" parallel="tests" thread-count="2">-->
+<!--<parameter name="searchedWord" value="mac"></parameter>-->
+
+<!--<test name="myTest1">-->
+<!--    <parameter name="browserType" value="firefox"></parameter>-->
+
+<!--    <classes>-->
+<!--        <class name="day05._01_SearchFunctionality"/>-->
+<!--    </classes>-->
+<!--</test>-->
+
+<!--<test name="myTest2">-->
+<!--    <parameter name="browserType" value="chrome"></parameter>-->
+
+<!--    <classes>-->
+<!--        <class name="day05._01_SearchFunctionality"/>-->
+<!--    </classes>-->
+<!--</test>-->
+<!--</suite>-->

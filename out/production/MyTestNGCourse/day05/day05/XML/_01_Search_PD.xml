@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suit">
+    <test name="test1">
+        <parameter name="searchedWord" value="mac"></parameter>
+        <parameter name="browserType" value="firefox"></parameter>
+
+        <classes>
+            <class name="day05._01_SearchFunctionality"/>
+        </classes>
+    </test>
+
+</suite>

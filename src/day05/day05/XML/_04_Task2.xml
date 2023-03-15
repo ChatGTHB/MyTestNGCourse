@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MySuit" parallel="tests" thread-count="3">
+    <test name="myTest1">
+        <parameter name="browserType" value="firefox"></parameter>
+
+        <classes>
+            <class name="day05._05_Task_2"/>
+        </classes>
+    </test>
+    <test name="myTest2">
+        <parameter name="browserType" value="edge"></parameter>
+
+        <classes>
+            <class name="day05._05_Task_2"/>
+        </classes>
+    </test>
+    <test name="myTest3">
+        <parameter name="browserType" value="chrome"></parameter>
+
+        <classes>
+            <class name="day05._05_Task_2"/>
+        </classes>
+    </test>
+
+</suite>

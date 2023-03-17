@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -20,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BaseDriverParameter {
+
     public WebDriver driver;
     public static WebDriverWait wait;
 
@@ -40,27 +40,29 @@ public class BaseDriverParameter {
                 break;
             default:
                 System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-                // driver = new ChromeDriver();
+
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--remote-allow-origins=*");
                 driver = new ChromeDriver(options);
+                // driver = new ChromeDriver();
                 break;
         }
 
+        driver.manage().window().maximize();
 
-        driver.manage().window().maximize(); // Ekranı max yapıyor.
+        Duration duration = Duration.ofSeconds(30);
+        driver.manage().timeouts().pageLoadTimeout(duration);
 
-        Duration dr = Duration.ofSeconds(30);
-        driver.manage().timeouts().pageLoadTimeout(dr);
-
-        driver.manage().timeouts().implicitlyWait(dr);
+        driver.manage().timeouts().implicitlyWait(duration);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
         loginTest();
+
     }
 
-
     void loginTest() {
+
         driver.get("https://opencart.abstracta.us/index.php?route=account/login");
 
         WebElement loginMail = driver.findElement(By.id("input-email"));
@@ -73,6 +75,7 @@ public class BaseDriverParameter {
         loginButton.click();
 
         Assert.assertEquals(driver.getTitle(), "My Account");
+
     }
 
     @AfterClass
@@ -80,6 +83,6 @@ public class BaseDriverParameter {
 
         Tools.wait(5);
         driver.quit();
-    }
 
+    }
 }

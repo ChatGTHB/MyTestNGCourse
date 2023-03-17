@@ -8,16 +8,16 @@ import org.testng.annotations.Test;
 import utility.BaseDriver;
 
 public class _04_ContactUs extends BaseDriver {
-    /*
-  1- ContactUs a tıklayınız
-  2- Mesaj kutusuna en az 10 karakterlik bir mesaj yazınız.
-  3- Submit ettikten sonra Contact US yazısını doğrulayınız.
-   */
-
+    /**
+    1- Click ContactUs
+    2- Type a message of at least 10 characters in the message box.
+    3- After submitting, verify the Contact US text.
+    */
 
     @Test
     @Parameters("message")
     void contactUs(String incomingMessage) {
+
         WebElement contactUsLink = driver.findElement(By.linkText("Contact Us"));
         contactUsLink.click();
 
@@ -25,12 +25,11 @@ public class _04_ContactUs extends BaseDriver {
         textArea.sendKeys(incomingMessage);
 
         WebElement submitButton = driver.findElement(By.cssSelector("[type='submit']"));
-       // submitButton.click();
+        // submitButton.click();
         submitButton.submit();
 
         WebElement verificiationMessage = driver.findElement(By.xpath("//h1[text()='Contact Us']"));
 
         Assert.assertTrue(driver.getCurrentUrl().contains("success"));
-
     }
 }

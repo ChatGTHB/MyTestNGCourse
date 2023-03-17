@@ -11,13 +11,13 @@ public class _01_SoftAssertVsHardAssert {
 
         String s1 = "Hello";
         System.out.println("Before Hard Assert");
-        Assert.assertEquals("Hello", s1, "Different formed with the expected.");
+        Assert.assertEquals("Hello123", s1, "Different formed with the expected."); /** the test is breaking */
         System.out.println("After Hard Assert");
-
     }
 
     @Test
     void softAssert() {
+
         String strHomePage = "www.facebook.com/homepage";
         String strCartPage = "www.facebook.com/cartpage";
         String strEditAccount = "www.facebook.com/editaccountpage";
@@ -33,7 +33,7 @@ public class _01_SoftAssertVsHardAssert {
 
         softAssert.assertAll(); // All assert results
         System.out.println("After activity");
-        // This section will not be on the screen because it is after assertAll and a mistake before it.
+        /** This section will not be on the screen because it is after assertAll and a mistake before it.*/
 
     }
 }

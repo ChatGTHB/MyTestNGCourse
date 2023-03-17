@@ -7,18 +7,20 @@ import utility.BaseDriver;
 
 public class _03_PlaceOrderElements {
 
-    // Bu sayfadaki bütün elemenalrın driverlar bağlantısı gerekiyor
-    // bunun için aşağıdaki constructor eklendi ve PageFactory ile
-    // driver üzerinden bu (this) sayfadaki bütün elemanlar ilişkilendirildi.
-    // Böylece sayfadan nesne türetildiği zaman değil kullanıldığı
-    // anda elemanların bulunması aktif oluyor. Bu yöntemle bütün sayfalarda
-    // aynı isimde elemanlar var ise buradaki tanımlama hepsi için geçerli hale
-    // gelmiş oluyor. buna yapıya Page Object Model (POM) adı veriliyor.
-
+     /**
+     All elements on this page need drivers connection,
+     for this the following constructor has been added and
+     all elements on this (this) page are associated via PageFactory and driver.
+     Thus, finding the elements is active when the object is used,
+     not when the object is derived from the page.
+     With this method, if there are elements with the same name on all pages,
+     the definition here becomes valid for all of them.
+     This structure is called the Page Object Model (POM).
+     */
 
     public _03_PlaceOrderElements() {
         PageFactory.initElements(BaseDriver.driver, this);
-        // driver.findElement'i hepsi için yap.
+        // Make driver.findElement for all.
     }
 
     @FindBy(name="search")
@@ -59,5 +61,4 @@ public class _03_PlaceOrderElements {
 
     @FindBy(xpath = "//div[@id='content']/h1")
     public WebElement messageLabel;
-
 }

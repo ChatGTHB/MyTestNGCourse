@@ -8,9 +8,9 @@ import utility.Tools;
 
 public class _04_SubscribeNewsletter extends BaseDriver {
     /*
-      Senaryo
-      1- Siteyi açınız.
-      2- Newsletter  Subscribe işlemini abone olunuz.(YES)
+       Scenario
+       1- Open the site.
+       2- Subscribe to Newsletter Subscribe transaction. (Yes)
     */
     @Test(priority = 1)
     void subscribeFunctionYes() {
@@ -29,7 +29,7 @@ public class _04_SubscribeNewsletter extends BaseDriver {
     }
 
     /*
-    3- Ayrı bir test ile Newsletter  Subscribe işlemini abonelikten çıkınız(NO)
+    3- Leave the Newsletter Subscribe transaction with a separate test from subscription (No).
     */
     @Test(priority = 2)
     void subscribeFunctionNo() {
@@ -48,7 +48,7 @@ public class _04_SubscribeNewsletter extends BaseDriver {
     }
 
     /*
-    4- Ayrı bir test ile Newsletter  Subscribe durumunu kontrol ediniz YES ise NO, NO ise YES yapınız.
+    4- Check the Newsletter Subscribe status with a separate test, if it is yes, do no, and if no, be yes.
     */
     @Test(priority = 3)
     void subscribeFunctionForBoth() {

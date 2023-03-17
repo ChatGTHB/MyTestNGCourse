@@ -8,22 +8,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utility.BaseDriver;
-import utility.Tools;
 
-import java.util.List;
 
 public class _02_PlaceOrder extends BaseDriver {
-    /*
-   Senaryo :
-   1- Siteyi açınız.
-   2- Sitede "ipod" kelimesini aratınız
-   3- Çıkan sonuçlardan ilkini sepete atınız.
-   4- Shopping Chart a tıklatınız.
-   5- Checkout yapınız.
-   6- Continue butonalarına tıklatıp bilgileri giriniz.
-   7- En confirm ile siparişi verdiğinizi doğrulayınız.
-      doğrulamayı çıkan sayfadaki "Your order has been placed" yazısı ile yapınız.
-*/
+     /**
+     Scenario :
+     1- Open the site.
+     2- Search the word "ipod" on the site
+     3- Add the first one of the results to the basket.
+     4- Click on Shopping Chart.
+     5- Checkout.
+     6- Click continue buttons and enter the information.
+     7- Confirm that you have placed the order with en confirm.
+     8- Verify with the text "Your order has been placed" on the page that appears.
+     */
 
     @Test
     void proceedToCheckout() {
@@ -45,8 +43,8 @@ public class _02_PlaceOrder extends BaseDriver {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         WebElement bannerButton=driver.findElement(By.id("bitnami-close-banner-button"));
-        js.executeScript("arguments[0].scrollIntoView(true);", bannerButton); //
 
+        js.executeScript("arguments[0].scrollIntoView(true);", bannerButton); //
         js.executeScript("arguments[0].click();", bannerButton);
 
         WebElement checkoutButton = driver.findElement(By.xpath("//a[text()='Checkout']"));
@@ -75,6 +73,5 @@ public class _02_PlaceOrder extends BaseDriver {
         WebElement messageLabel = driver.findElement(By.xpath("//div[@id='content']/h1"));
 
         Assert.assertEquals("Your order has been placed!", messageLabel.getText());
-
     }
 }

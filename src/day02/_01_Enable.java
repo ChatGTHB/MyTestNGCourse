@@ -33,31 +33,29 @@ public class _01_Enable {
 
     @BeforeClass
     void startingOperations() {
-        System.out.println("Başlangıç İşlemleri yapılıyor.");
+        System.out.println("Starting operations are being done.");
+
         Logger logger = Logger.getLogger("");
         logger.setLevel(Level.SEVERE); //
 
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-        // System.setProperty(EdgeDriverService.EDGE_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-
         // driver = new ChromeDriver();
-        // driver = new EdgeDriver();
 
-        driver.manage().window().maximize(); // Ekranı max yapıyor.
+        driver.manage().window().maximize();
 
-        Duration dr = Duration.ofSeconds(30);
-        driver.manage().timeouts().pageLoadTimeout(dr);
+        Duration duration = Duration.ofSeconds(30);
+        driver.manage().timeouts().pageLoadTimeout(duration);
 
-        driver.manage().timeouts().implicitlyWait(dr);
+        driver.manage().timeouts().implicitlyWait(duration);
     }
 
     @AfterClass
     void endingOperations() {
-        System.out.println("Bitiş İşlemleri yapılıyor");
+        System.out.println("Finish operations are done.");
         Tools.wait(5);
         driver.quit();
     }

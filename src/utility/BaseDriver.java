@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BaseDriver {
+
     public static WebDriver driver;
     public static WebDriverWait wait;
 
@@ -23,31 +24,30 @@ public class BaseDriver {
     public void startingOperations() {
 
         Logger logger = Logger.getLogger("");
-        logger.setLevel(Level.SEVERE); //
+        logger.setLevel(Level.SEVERE);
 
         System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-        // System.setProperty(EdgeDriverService.EDGE_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-
         // driver = new ChromeDriver();
-        // driver = new EdgeDriver();
 
-        driver.manage().window().maximize(); // Ekranı max yapıyor.
+        driver.manage().window().maximize();
 
-        Duration dr = Duration.ofSeconds(30);
-        driver.manage().timeouts().pageLoadTimeout(dr);
+        Duration duration = Duration.ofSeconds(30);
+        driver.manage().timeouts().pageLoadTimeout(duration);
 
-        driver.manage().timeouts().implicitlyWait(dr);
+        driver.manage().timeouts().implicitlyWait(duration);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
         loginTest();
+
     }
 
+    void loginTest() {
 
-     void loginTest() {
         driver.get("https://opencart.abstracta.us/index.php?route=account/login");
 
         WebElement loginMail = driver.findElement(By.id("input-email"));
@@ -59,7 +59,7 @@ public class BaseDriver {
         WebElement loginButton = driver.findElement(By.xpath("//input[@class='btn btn-primary']"));
         loginButton.click();
 
-         Assert.assertTrue(driver.getTitle().equals("My Account"));
+        Assert.assertEquals(driver.getTitle(), "My Account");
     }
 
     @AfterClass
@@ -67,6 +67,6 @@ public class BaseDriver {
 
         Tools.wait(5);
         driver.quit();
-    }
 
+    }
 }

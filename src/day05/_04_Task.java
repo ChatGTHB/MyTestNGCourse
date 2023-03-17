@@ -12,11 +12,12 @@ import java.util.List;
 public class _04_Task extends BaseDriver {
     /**
      * Daha önceki derslerde yaptğımız Search fonksiyonunu
-     * mac,ipod ve samsung için Dataprovider ile yapınız.
+     * mac,ipod ve samsung için DataProvider ile yapınız.
      */
 
     @Test(dataProvider = "getData")
     void searchFunction(String product) {
+
         WebElement searchInput = driver.findElement(By.cssSelector("[placeholder='Search']"));
         searchInput.clear();
         searchInput.sendKeys(product);
@@ -36,6 +37,4 @@ public class _04_Task extends BaseDriver {
         Object[] data = {"mac", "samsung", "ipod"};
         return data;
     }
-
-
 }

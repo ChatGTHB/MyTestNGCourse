@@ -16,13 +16,13 @@ import java.time.Duration;
 import java.util.List;
 
 public class _02_AddressFunctionality extends BaseDriver {
-    /*
-       Senaryo;
-       1- Siteyi açınız.
-       2- Adress Ekleyiniz.
-       3- En son adresi edit yaparak ad ve soyadı değiştirip kaydediniz.
-       4- En son adresi siliniz.
- */
+    /**
+       Scenario;
+       1- Open the site.
+       2- Add Address.
+       3- Edit the last address, change the name and surname and save it.
+       4- Delete the last address.
+    */
     @Test
     void addAddress() {
 
@@ -65,19 +65,19 @@ public class _02_AddressFunctionality extends BaseDriver {
         Select country = new Select(countrySelect);
         country.selectByValue("160");
 
-        // 1. Seçenek
+        // 1. Option
 //        WebElement options = driver.findElement(By.cssSelector("select[id='input-zone']>option"));
 //        wait.until(ExpectedConditions.stalenessOf(options));
 
-        // 2. Seçenek
+        // 2. Option
         wait.until(ExpectedConditions.elementToBeClickable(countrySelect));
 
         WebElement stateSelect = driver.findElement(By.id("input-zone"));
         Select state = new Select(stateSelect);
         state.selectByIndex(7);
 
-        //selectByVisibleText, selectByValue : findElement gibi çalıştığından implictly wait'i kullanır.
-        // selectByIndex : implicitlyWait ie çalışMIYOR. ancak ExplicitWait ile çalışır
+        // selectByVisibleText, selectByValue : It uses implicitly wait because it works like findElement.
+        // selectByIndex : It does NOT work with implicitlyWait. but it works with ExplicitWait
 
         WebElement defaultAddress = driver.findElement(By.xpath("//input[@value='1']"));
         defaultAddress.click();
@@ -86,7 +86,6 @@ public class _02_AddressFunctionality extends BaseDriver {
         continueButton.click();
 
         Tools.successMessageValidation();
-
     }
 
     @Test(dependsOnMethods = {"addAddress"})
@@ -119,6 +118,7 @@ public class _02_AddressFunctionality extends BaseDriver {
 
     @Test(dependsOnMethods = {"editAddress"})
     void deleteAddress() {
+
         WebElement addressBook = driver.findElement(By.linkText("Address Book"));
         addressBook.click();
 

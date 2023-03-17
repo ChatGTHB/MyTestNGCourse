@@ -5,15 +5,16 @@ import org.testng.annotations.Test;
 import utility.BaseDriver;
 
 public class _01_Dependency extends BaseDriver {
-    // Aracın hareketi ==> start, drive, park, stop hareket sıras
+    // Vehicle movement ==> start, drive, park, stop movement sequence
 
     @Test
     void startCar() {
         System.out.println("startCar");
         // Assert.fail();
     }
+
     @Test(dependsOnMethods = {"startCar"})
-        // Bu testin çalışması, startCar'ın hatasız çalışmasına bağlı
+        // The running of this test depends on the error-free operation of startCar.
     void driveCar() {
         System.out.println("driveCar");
     }
@@ -23,13 +24,17 @@ public class _01_Dependency extends BaseDriver {
         System.out.println("parkCar");
     }
 
-    // alwaysRun=true bağımlılıkarı olmasına rağmen hata çıkarsa yine de çalıştır.
     @Test(dependsOnMethods = {"parkCar"}, alwaysRun = true)
+        // alwaysRun=true if there are dependencies but still run if error occurs.
     void stopCar() {
         System.out.println("stopCar");
     }
 
-    // aynı seviyedeki testleri için priority verilebilir.
-    // bağımlı testler, direk metodundan çalıştırdığınızda bağımlı olduğu metod zincirinde
-    // 1 üste kadar ototmatik çağırıp çalışabilir.
+     /**
+     priority can be given for tests at the same level.
+     When you run the dependent tests from the direct method they can automatically call
+     and run up to 1 in the method chain they are dependent on.
+     */
+
+
 }

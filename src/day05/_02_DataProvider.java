@@ -6,24 +6,22 @@ import org.testng.annotations.Test;
 public class _02_DataProvider {
 
     /**
-     * Aşağıdaki ikili ile Dataproviderın içindeki bütün veriler tek tek test e gönderilerek
-     * data sayısı kadar test çalıştırılır, dataların olduğu yere DataProvider annottion ı konur.
-     * çalıştırılacak teste ise dataProvider = "getData"  bölümü eklenir.
-     * Dataprovider bir testi birden fazla DATA ile çalıştırmak için kullanılır.
-     * XML filer file gruplama, parallel, ve farklı tesleri koordine edip bir arada çalıştırmak için kullanılır.
+     With the following binary, all the data in the Dataprovider is sent to the test one by one,
+     and the test is run as much as the number of data,
+     and the DataProvider annotation is placed where the data is.
+     dataProvider = "getData" section is added to the test to be run.
+     Dataprovider is used to run a test with more than one DATA. XML filer file is used to
+     coordinate grouping, parallel, and different tests and run them together.
      */
-
 
     @Test(dataProvider = "myDatas")
     void usernameTest(String username) {
         System.out.println("username = " + username);
     }
 
-    @DataProvider// bu metoda dataprovider görevi verildi.
-    public Object[] myDatas() {// DataProvider olarak kullanılcak metodun tipi Object olmak zorunda.
-        Object[] users = {"Yakup", "Kadri", "Sait", "Faik"};
+    @DataProvider // This method has been assigned the task of DataProvider.
+    public Object[] myDatas() { // The type of the method to be used as DataProvider must be Object.
+        Object[] users = {"Yakup", "Kadri", "Ziya", "Osman"};
         return users;
     }
-
-
 }

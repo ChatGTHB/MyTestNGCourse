@@ -10,12 +10,12 @@ public class _03_DataProvider_Multidimensional {
     }
 
     @DataProvider
-    public Object[][] userData() {// DataProvider olarak kullanılcak metodun tipi Object olmak zorunda.
+    public Object[][] userData() { // The type of the method to be used as DataProvider must be Object.
         Object[][] data = {
                 {"Yakup", ".-*4569ĞŞ"},
                 {"Kadri", "TJHhjK4587-"},
-                {"Sait", "vcb74-*Q"},
-                {"Faik", "12Ü,İŞ,1vs"}
+                {"Ziya", "vcb74-*Q"},
+                {"Osman", "12Ü,İŞ,1vs"}
         };
         return data;
     }

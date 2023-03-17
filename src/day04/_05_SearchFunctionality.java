@@ -10,17 +10,18 @@ import utility.BaseDriver;
 import java.util.List;
 
 public class _05_SearchFunctionality extends BaseDriver {
-    /*
-      Senaryo ;
-      1- Siteyi açınız.
-      2- mac kelimesini göndererek aratınız.
-      3- Çıkan sonuçlarda mac kelimesinin geçtiğini doğrulayınız.
-      4- aynı işlemi samsung için de yapınız
+    /**
+     Scenario ;
+     1- Open the site.
+     2- Search by sending the word "mac".
+     3- Verify that the word mac is included in the results.
+     4- Do the same for "samsung".
     */
 
     @Test
     @Parameters("searchedWord")
     void searchFunction(String product) {
+
         WebElement searchBox= driver.findElement(By.cssSelector("[placeholder='Search']"));
         searchBox.sendKeys(product);
 

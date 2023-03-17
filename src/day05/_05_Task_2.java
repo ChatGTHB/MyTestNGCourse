@@ -4,21 +4,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utility.BaseDriverParameter;
 
 import java.util.List;
 
 public class _05_Task_2 extends BaseDriverParameter {
-    /**
-     * Bir önceki task(dataproviderlı) da yapılan testi PARAMETERDRIVER ile yapınız
-     * sonrasında fakrlı tarayıcılar ile çalıştırınız. (crossbrowser)
-     * sonrasında paralel çalıştırınız.(parallel)
+     /**
+     Perform the test done in the previous task (with DataProvider) with PARAMETERDRIVER.
+     Then run it with different browsers. (crossbrowser)
+     Then run it in parallel. (parallel)
      */
 
     @Test(dataProvider = "getData")
     void searchFunction(String product) {
+
         WebElement searchInput = driver.findElement(By.cssSelector("[placeholder='Search']"));
         searchInput.clear();
         searchInput.sendKeys(product);
@@ -38,7 +38,4 @@ public class _05_Task_2 extends BaseDriverParameter {
         Object[] data = {"mac", "samsung", "ipod"};
         return data;
     }
-
-
-
 }

@@ -12,7 +12,7 @@ public class _03_Assertions {
         String s2 = "Hello";
 
         // Actual(Oluşan),Expected(Umulan),Message(Optional)
-        Assert.assertEquals(s1, s2, "Oluşan ve umulan eşleşmedi.");
+        Assert.assertEquals(s1, s2, "Actualized and the expected did not match.");
     }
 
     @Test
@@ -22,7 +22,7 @@ public class _03_Assertions {
         String s2 = "Hello1";
 
         // Actual(Oluşan),Expected(Umulan),Message(Optional)
-        Assert.assertNotEquals(s1, s2, "Oluşan ve umulan eşleşti.");
+        Assert.assertNotEquals(s1, s2, "Actualized and the expected matched.");
     }
 
     @Test
@@ -32,7 +32,7 @@ public class _03_Assertions {
         int s2 = 66;
 
         // Actual(Oluşan),Expected(Umulan),Message(Optional)
-        Assert.assertTrue(s1 == s2, "Karşılaştırılanlar eşit değil");
+        Assert.assertTrue(s1 == s2, "The comparisons are not equal.");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class _03_Assertions {
 
         String s1 = null;
 
-        Assert.assertNull(s1, "Null değil");
+        Assert.assertNull(s1, "Not null");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class _03_Assertions {
 
         int num=55;
         if(num==55){
-            Assert.fail(); // Assert.fail("Hata oluştu.")
+            Assert.fail(); // Assert.fail("An error occurred.")
         }
     }
 

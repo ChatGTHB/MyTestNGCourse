@@ -7,7 +7,8 @@ import utility.BaseDriver;
 
 public class _03_PlaceOrderElements {
 
-     /**
+
+    /**
      All elements on this page need drivers connection,
      for this the following constructor has been added and
      all elements on this (this) page are associated via PageFactory and driver.
@@ -23,7 +24,7 @@ public class _03_PlaceOrderElements {
         // Make driver.findElement for all.
     }
 
-    @FindBy(name="search")
+    @FindBy(css="[placeholder='Search']")
     public WebElement searchBox;
 
     @FindBy(css = "[class='btn btn-default btn-lg']")

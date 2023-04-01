@@ -19,7 +19,6 @@
     </test>
 </suite>
 
-
 <!--Alternate Code-->
 
 <!--<suite name="MySuit" parallel="tests" thread-count="2">-->

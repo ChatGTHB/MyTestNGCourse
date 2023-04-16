@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test name="test1">
-        <parameter name="searchedText" value="ipod"/>
-        <classes>
-            <class name="day07._01_WishList"/>
-        </classes>
-    </test>
-</suite>
